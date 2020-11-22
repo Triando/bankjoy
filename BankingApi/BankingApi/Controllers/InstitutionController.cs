@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using BankingApi.Models;
+using System.Net;
+using System;
 
 namespace BankingApi.Controllers
 {
@@ -7,11 +12,19 @@ namespace BankingApi.Controllers
     [ApiController]
     public class InstitutionController : ControllerBase
     {
+
+        private readonly InstitutionContext _context;
+
+        public InstitutionController(InstitutionContext context)
+        {
+            _context = context;
+        }
+
         // GET: api/<InstitutionController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<IEnumerable<Institution>>> GetInstitutions()
         {
-            return new string[] { "value1", "value2" };
+            return await _context.Institutions.ToListAsync();
         }
 
         // GET api/<InstitutionController>/5
@@ -21,10 +34,27 @@ namespace BankingApi.Controllers
             return "value";
         }
 
-        // POST api/<InstitutionController>
+        // POST: api/Institution
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<Institution>> PostMember(Institution institution)
         {
+            if (ModelState.IsValid)
+            {
+                _context.Institutions.Add(institution);
+                await _context.SaveChangesAsync();
+
+                return CreatedAtAction("GetInstitutions", new { id = institution.InstitutionId }, institution);
+            }
+            else
+            {
+                return Json(new { status = "error", message = "error creating customer" });
+            }
+
+        }
+
+        private ActionResult<Institution> Json(object p)
+        {
+            throw new NotImplementedException();
         }
 
         // PUT api/<InstitutionController>/5

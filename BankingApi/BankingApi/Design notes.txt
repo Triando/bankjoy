@@ -1,0 +1,32 @@
+Institution
+- Add institution
+- Name is required
+- Name does not already exist
+- Get Institutions
+- Get institution by ID
+- Get Institution By name
+
+Member
+- Add Member
+- Update Member
+- Delete Member
+- Get All Members
+- Get member by MemberId
+- Get Members by InstitutionId
+- Verify GibenNameProvided
+- Verify LastNAme Provided
+
+Update Balance
+- Add Balance
+- Subtract Balance
+- Verify Money Exists in Account
+
+Transfer Balance
+- Add money and subtract money from accounts
+- Verify Money exists in From account
+- Verify Members are in the same institution
+- Verify Members exist
+- Verify Removal before adding to second account
+
+
+

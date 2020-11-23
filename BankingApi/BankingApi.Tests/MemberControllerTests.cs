@@ -3,12 +3,11 @@ using Xunit;
 using BankingApi.Controllers;
 using BankingApi.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+
 
 namespace BankingApi
 {
-    public class MemberControllerTest
+    public class MemberControllerTests
     {
         private MemberController GetMemberController(string dbName)
         {
@@ -88,22 +87,5 @@ namespace BankingApi
             // TODO: Add test to verify institutionID is valid before adding Member
         }
 
-        [Fact]
-        public async Task UpdateBalanceAdd()
-        {
-
-        }
-
-        [Fact]
-        public async Task UpdateBalanceSubtract()
-        {
-
-        }
-
-        [Fact]
-        public async Task UpdateBalanceInsufficientFunds()
-        {
-
-        }
     }
 }

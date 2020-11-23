@@ -85,7 +85,25 @@ namespace BankingApi
         [Fact]
         public async Task VerifyInstitutionExists()
         {
-            // TODO: Add test to verify institutionID is valid before adding
+            // TODO: Add test to verify institutionID is valid before adding Member
+        }
+
+        [Fact]
+        public async Task UpdateBalanceAdd()
+        {
+
+        }
+
+        [Fact]
+        public async Task UpdateBalanceSubtract()
+        {
+
+        }
+
+        [Fact]
+        public async Task UpdateBalanceInsufficientFunds()
+        {
+
         }
     }
 }
